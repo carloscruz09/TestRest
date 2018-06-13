@@ -1,0 +1,41 @@
+server:
+  type: default
+  maxThreads: 512
+  gzip:
+    enabled: true
+  applicationContextPath: /test/v1
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+logging:
+  level: INFO
+  appenders:
+    - type: console
+
+# Database settings.
+database:
+    driverClass: com.mysql.jdbc.Driver
+    user: root
+    password: password123
+    url: jdbc:mysql://localhost:3306/TestBD
+    validationQuery: "/* MyService Health Check */ SELECT 1"
+
+swagger:
+  basePath: /test/v1
+  contact: Carlos Cruz
+  contactEmail: hector_0918@hotmail.com
+  description: Test Application
+  host: localhost:8080
+  license: AMK Technologies, S.A. de C.V.
+  licenseUrl: http://www.amk-technologies.com
+  resourcePackage: com.service_rest.application.service
+  scan: true
+  schemes:
+    - http
+  termsOfServiceUrl: http://www.amk-technologies.com
+  title: Test Application
+  version: 1.0.0
